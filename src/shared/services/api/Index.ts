@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const Api = axios.create({
-    baseURL: 'http://192.168.43.83:8800'
+    baseURL: 'https://resort-psi.vercel.app/'
 })
 
 export {Api}
