@@ -21,7 +21,7 @@ export const Quarto: React.FC = () => {
 
     const notifyEliminar = () => toast.error('Eliminado com sucesso!', { autoClose: 2000, position: 'bottom-right' });
 
-    const notifyEditar = () => toast.error('Editado com sucesso!', { autoClose: 2000, position: 'bottom-right' });
+    const notifyEditar = () => toast.success('Editado com sucesso!', { autoClose: 2000, position: 'bottom-right' });
 
     const [quartos, setQuartos] = useState<QuartoData[]>([]);
     const [isLoading, setIsLoading] = useState(true)
