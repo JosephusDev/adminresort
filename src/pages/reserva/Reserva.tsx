@@ -43,14 +43,14 @@ export const Reserva: React.FC = () => {
   }
 
     const formatDate = (dateString: string) => {
-        console.log(dateString)
-        const date = new Date(dateString);
-        const day = date.getDate().toString().padStart(2, '0');
-        const month = (date.getMonth() + 1).toString().padStart(2, '0');
-        const year = date.getFullYear();
-        
-        return `${day}/${month}/${year}`;
-    };
+      const date = new Date(dateString);
+      const formattedDay = date.getDate().toString().padStart(2, '0');
+      const formattedMonth = (date.getMonth() + 1).toString().padStart(2, '0');
+      const formattedYear = date.getFullYear();
+      
+      return `${formattedDay}/${formattedMonth}/${formattedYear}`;
+  };
+
 
     const elimReserva = () => {
         Api.delete(`/reserva/${reserva}`)
