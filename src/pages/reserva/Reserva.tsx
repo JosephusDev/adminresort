@@ -43,13 +43,16 @@ export const Reserva: React.FC = () => {
   }
 
     const formatDate = (dateString: string) => {
-      const date = new Date(dateString);
+      const datePart = dateString.slice(0, 10); // Remove a parte do tempo da string
+      const [year, month, day] = datePart.split('-');
+      const date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day)); // Cria o objeto Date com a data formatada corretamente
       const formattedDay = date.getDate().toString().padStart(2, '0');
       const formattedMonth = (date.getMonth() + 1).toString().padStart(2, '0');
       const formattedYear = date.getFullYear();
       
       return `${formattedDay}/${formattedMonth}/${formattedYear}`;
   };
+
 
 
     const elimReserva = () => {
