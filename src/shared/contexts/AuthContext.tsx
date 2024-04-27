@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 // Definição da forma dos dados no contexto
 interface AuthContextData {
     isAuthenticated: boolean;
+    carregando: boolean;
     handleLogin: (usuario: string, senha: string) => Promise<void>;
     handleLogout: () => void;
     setIdUsuario: React.Dispatch<React.SetStateAction<number>>;
@@ -25,10 +26,12 @@ interface MyAuthProps {
 
 export const Auth: React.FC<MyAuthProps> = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [carregando, setCarregando] = useState(false);
     const [idUsuario, setIdUsuario] = useState(-1)
     const navigate = useNavigate();
 
     const handleLogin = useCallback(async (usuario: string, senha: string) => {
+        setCarregando(true)
         try {
             const response = await Api.post('/funcionarios/logar', {
                 usuario: usuario,
@@ -41,9 +44,11 @@ export const Auth: React.FC<MyAuthProps> = ({ children }) => {
                 setIdUsuario(0)
                 console.error('Usuário não encontrado ou erro na resposta do servidor');
             }
+            setCarregando(false)
         } catch (error) {
             setIdUsuario(0)
             console.error(error);
+            setCarregando(false)
         }
     }, []);
 
@@ -55,7 +60,7 @@ export const Auth: React.FC<MyAuthProps> = ({ children }) => {
     }, [navigate]);
 
     return (
-        <AuthContext.Provider value={{ isAuthenticated, handleLogin, handleLogout, idUsuario, setIdUsuario }}>
+        <AuthContext.Provider value={{ isAuthenticated, handleLogin, handleLogout, idUsuario, setIdUsuario, carregando }}>
             {children}
         </AuthContext.Provider>
     );
