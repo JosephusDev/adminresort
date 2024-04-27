@@ -89,7 +89,7 @@ const Login: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                     variant="contained"
                     color="primary"
                     disableElevation
-                    startIcon={<Icon>login</Icon>}
+                    startIcon={carregando ? <Carregando/> : <Icon>login</Icon>}
                     onClick={fazerLogin}
                     style={{ width: isSmallScreen ? "40%" : isMediumScreen ? "60%" : "30%" }}
                 >
