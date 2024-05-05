@@ -63,7 +63,7 @@ const Login: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 src='https://www.hoteisangola.com/components/com_reservations/gallery/s1/hotels/large/g7/kakanda%20resort%20dundo-1.jpg'
                 sx={{ width: theme.spacing(12), height: theme.spacing(12) }}
             />
-            <Typography variant='h6' sx={{marginY: 3}}>Kakanda Resort</Typography>
+            <Typography variant='h6' sx={{marginY: 3}}>Kakanda Reservas</Typography>
             <TextField
                 type='text'
                 size='small'
