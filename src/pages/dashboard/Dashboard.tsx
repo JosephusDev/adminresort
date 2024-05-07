@@ -7,7 +7,7 @@ export const Dashboard = () => {
     
   return (
     <LayoutBaseDePagina
-      titulo='Kakanda Resort'
+      titulo='Kakanda Reservas'
     >
       <Box width='100%' display='flex'>
         <Grid container margin={2}>
